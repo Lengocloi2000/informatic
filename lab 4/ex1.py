@@ -18,5 +18,7 @@ def fibo(n):
 if __name__ == '__main__':
     parser = createParser()
     namespace = parser.parse_args()
-
-    print (fibo(int(namespace.n)))
+    try:
+        print(fibo(int(namespace.n)))
+    except TypeError:
+        print('not enough argument, add an argument')
