@@ -13,7 +13,7 @@ def output_file(path):
                 with open(path , 'w') as file:
                     file.write('\n'.join(list(map(str,[start_time, *args, *kwargs, val, end_time, run_time]))))
             except FileNotFoundError:
-                print("No such directory, try again")
+                print("No such file or directory, try again")
             except Exception:
                 print("Unknown interrupt")
             return val
