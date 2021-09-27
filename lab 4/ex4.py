@@ -13,9 +13,9 @@ def output_file(path):
                 with open(path , 'w') as file:
                     file.write('\n'.join(list(map(str,[start_time, *args, *kwargs, val, end_time, run_time]))))
             except FileNotFoundError:
-                print("No such file or directory, try again")
+                print("Sorry . This file does not exist")
             except Exception:
-                print("Unknown interrupt")
+                print("Sorry. Something went wrong")
             return val
         return wrapper
     return decorator_output_file
@@ -35,8 +35,7 @@ try:
 except ValueError:
     print("Invalid type of input")
 except Exception:
-    print("Unknown interrupt")
-
+    print("Sorry. Something went wrong")
 
 
 
