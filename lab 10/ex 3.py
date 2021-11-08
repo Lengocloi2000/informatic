@@ -2,9 +2,8 @@ from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 import requests
-import re
 
-secret_token = '2120664649:AAFLtktUy1Y66dVowXypGEuxSDZ8p7HAFtM'
+secret_token = '2144078778:AAERvt6KRV5q-MeslE3cwLZrqC5M3Yue0C4'
 
 bot = Bot(token=secret_token)
 dp = Dispatcher(bot)
@@ -16,11 +15,12 @@ def get_url():
 async def send_welcome(message: types.Message):
     await message.reply("Hi!\nI'm EchoBot!\nPowered by aiogram.")
 
+@dp.message_handler(commands=['photo'])
+async def send_photo(message: types.Message):
+    await message.reply_photo(photo=get_url())
+
 @dp.message_handler()
 async def echo(message: types.Message):
-   # url = get_url()
-   # chat_id = message.migrate_from_chat_id(url)
-   # await message.reply_photo(message.chat.id )
     await message.reply(message.text)
 
 
