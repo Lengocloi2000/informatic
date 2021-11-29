@@ -33,7 +33,7 @@ class TextLoader:
             file_path = next(self.iterable)
         self.made.add(file_path)
         print (file_path)
-        text = self.next(file_path)
+        text = self.fix(file_path)
         return text
 
     def __getstate__(self):
