@@ -13,9 +13,9 @@ class TextLoader:
         return len(self.files_list)
 
     def __getitem__(self, path):
-        return formatted(path)
+        return fix(path)
 
-    def formatted (self, path):
+    def fix(self, path):
         file = open(path, "r+t", encoding='utf-8')
         text = ''
         for line in file:
@@ -40,7 +40,7 @@ class TextLoader:
         state = self.__dict__.copy()
         return state
 
-    def ndump(self):
+    def pick(self):
         os.chdir('..')
         with open('./data.pickle', 'wb') as f:
             pickle.dump(self, f , pickle.HIGHEST_PROTOCOL)
@@ -66,5 +66,5 @@ while True:
         except Exception:
             break
     if inp == 'end':
-        texts.ndump()
+        texts.pick()
         break
